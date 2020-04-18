@@ -1,0 +1,8 @@
+For my project I will be implementing Chu–Liu/Edmonds' algorithm which finds a spanning arborescence tree of minimum weight given a directed graph, the weights of all the edges, and a root node in the graph. 
+
+Resources:
+(https://en.wikipedia.org/wiki/Edmonds%27_algorithm) This resource provides general information about the algorithm and also provides an implementation of the algorithm in plain text English. 
+
+(https://nvlpubs.nist.gov/nistpubs/jres/71B/jresv71Bn4p233_A1b.pdf) This resource is the original paper published by Edmonds' detailing the algorithm.
+
+The programming language I plan to use is C++.
