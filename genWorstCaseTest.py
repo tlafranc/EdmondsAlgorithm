@@ -1,9 +1,9 @@
-def prodTestFile(num):
-    n = 1000
+def prodTestFile():
+    n = 3000
     file = open("worstCase" + str(n) + ".txt", "w")
     
     m = (n - 3) * 2 + 3
-    file.write(str(n) + '\n' + str(m) + '\n')
+    file.write(str(n) + ' ' + str(m) + '\n')
     file.write(str(1) + " " + str(2) + " " + str(1) + '\n')
 
     cost = 2
@@ -18,4 +18,4 @@ def prodTestFile(num):
     file.write(str(0) + " " + str(n - 1) + " " + str(cost) + '\n')
 
 
-prodTestFile(14)
+prodTestFile()

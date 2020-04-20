@@ -191,11 +191,10 @@ void MDST(int n) {
                 }
                 // Store old edge and then update edge
                 changedEdges[edge.second] = new Edge(edge.second->u, edge.second->v, edge.second->w);
+                nodes[edge.second->u]->edgesGoingOut.erase(edge.second->v);
+
                 edge.second->v = n - 1;
                 edge.second->w = updatedWeight;
-
-                // Update corresponding edgesGoingOut and edgesComingIn maps for all vertices
-                nodes[edge.second->u]->edgesGoingOut.erase(edge.second->v);
                 nodes[n - 1]->edgesComingIn[edge.second->u] = edge.second;
                 nodes[edge.second->u]->edgesGoingOut[n - 1] = edge.second;
             } else {
@@ -220,10 +219,9 @@ void MDST(int n) {
                 }
                 // Store old edge and then update edge
                 changedEdges[edge.second] = new Edge(edge.second->u, edge.second->v, edge.second->w);
-                edge.second->u = n - 1;
-
-                // Update corresponding edgesGoingOut and edgesComingIn maps for all vertices
                 nodes[edge.second->v]->edgesComingIn.erase(edge.second->u);
+                
+                edge.second->u = n - 1;
                 nodes[n - 1]->edgesGoingOut[edge.second->v] = edge.second;
                 nodes[edge.second->v]->edgesComingIn[n - 1] = edge.second;
             } else {
@@ -270,7 +268,7 @@ void MDST(int n) {
     n--;
 }
 
-int findACycle(int vertex, unordered_map<int, Edge*>& vertexToMinEdge, unordered_set<int>& toRoot, unordered_set<int>& currentPath, unordered_set<Edge*>& cycleEdges, unordered_set<int>& cycleNodes) {        
+int findACycle(int vertex, unordered_map<int, Edge*>& vertexToMinEdge, unordered_set<int>& toRoot, unordered_set<int>& currentPath, unordered_set<Edge*>& cycleEdges, unordered_set<int>& cycleNodes) {
     currentPath.insert(vertex);
     
     Edge* edge = vertexToMinEdge[vertex];
